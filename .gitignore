@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+build_artifacts
+node_modules
+zip
+dist
+nateblog
+.vscode
