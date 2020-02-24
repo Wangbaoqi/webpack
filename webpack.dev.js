@@ -1,7 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
@@ -11,10 +9,7 @@ module.exports = {
   output: {
     filename: '[name]_chunk.js',
     // filename: '[name].js' 占位符 多入口文件
-    path: path.resolve(__dirname, 'dist'),
-
-    // 
-    publicPath: '/'
+    path: path.resolve(__dirname, 'dist')
   },
   // 模块 处理项目不同类型的模块
 
@@ -69,31 +64,25 @@ module.exports = {
   },
   // 插件
   plugins: [
+    // new CleanWebpackPlugin(),
 
-    // new CleanWebpackPlugin()
-    // new HtmlWebpackPlugin({
-    //   title: 'output'
-    // }),
-
-
-    
-    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
 
     // new MiniCssExtractPlugin({
     //   filename: '[name][contenthash:8].css'
     // })
   ],
 
-  devtool: 'inline-source-map',
-
-
   // wds 热更新配置
   devServer: {
-    contentBase: './dist',
+    contentBase: './dist/',
     hot: true
   },
 
   mode: 'development', // 'development'
+
+  devtool: 'inline-source-map',
+
 
   // mode: 'development'
   // 开启 process.env.NODE_ENV = 'development'
